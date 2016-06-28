@@ -42,14 +42,14 @@ const (
 	TestLabelFileName     = "t10k-labels-idx1-ubyte.gz"
 )
 
-// Image represent a MNIST image. It is a array a bytes representing the color.
+// Image represents a MNIST image. It is a array a bytes representing the color.
 // 0 is black (the background) and 255 is white (the digit color).
 type Image [Width * Height]byte
 
 // Label is the digit label from 0 to 9.
 type Label int8
 
-// Set represent the data set with the images paired with the labels.
+// Set represents the data set with the images paired with the labels.
 type Set struct {
 	Images []*Image
 	Labels []Label
@@ -211,7 +211,7 @@ func (s *Set) Get(i int) (*Image, Label) {
 	return s.Images[i], s.Labels[i]
 }
 
-// Load load the whole MINST database and returns the training set and the test
+// Load loads the whole MINST database and returns the training set and the test
 // set.
 func Load(dir string) (training, test *Set, err error) {
 	training, err = LoadSet(path.Join(dir, TrainingImageFileName),
